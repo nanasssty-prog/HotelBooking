@@ -1,0 +1,111 @@
+.hotel-container {
+    width: 6910px;
+    height: 5580px;
+    position: relative;
+    background: white;
+    overflow: hidden;
+}
+
+.header-bg {
+    width: 6840px;
+    height: 1380px;
+    left: 0px;
+    top: 80px;
+    position: absolute;
+    background: #f7e4c9;
+}
+
+.nav-bg-1 {
+    width: 1656px;
+    height: 400px;
+    left: 1343px;
+    top: 594px;
+    position: absolute;
+    border-radius: 362px;
+}
+
+.brand-name {
+    left: 211px;
+    top: 1214px;
+    position: absolute;
+    color: #926f5f;
+    font-size: 128px;
+    font-family: Inconsolata, sans-serif;
+    font-weight: 500;
+}
+
+.logo-circle {
+    width: 910px;
+    height: 850px;
+    left: 140px;
+    top: 345px;
+    position: absolute;
+    background: #5a4d45;
+    border-radius: 9999px;
+}
+
+.logo-text {
+    left: 395px;
+    top: 560px;
+    position: absolute;
+    color: white;
+    font-size: 400px;
+    font-family: Inconsolata, sans-serif;
+    font-weight: 500;
+}
+
+.hero-img {
+    width: 6840px;
+    height: 4562px;
+    left: 0px;
+    top: 1640px;
+    position: absolute;
+}
+
+.nav-link-1 {
+    left: 1768px;
+    top: 689px;
+    position: absolute;
+    color: white;
+    font-size: 200px;
+    font-family: Inconsolata, sans-serif;
+    font-weight: 500;
+}
+
+.nav-bg-2 {
+    width: 1656px;
+    height: 400px;
+    left: 3089px;
+    top: 594px;
+    position: absolute;
+    border-radius: 362px;
+}
+
+.nav-link-2 {
+    left: 3435px;
+    top: 689px;
+    position: absolute;
+    color: white;
+    font-size: 200px;
+    font-family: Inconsolata, sans-serif;
+    font-weight: 500;
+}
+
+.nav-bg-3 {
+    width: 1656px;
+    height: 400px;
+    left: 4835px;
+    top: 594px;
+    position: absolute;
+    border-radius: 362px;
+}
+
+.nav-link-3 {
+    left: 5328px;
+    top: 689px;
+    position: absolute;
+    color: white;
+    font-size: 200px;
+    font-family: Inconsolata, sans-serif;
+    font-weight: 500;
+}
