@@ -1,0 +1,162 @@
+/* Основная секция Hero */
+.hero {
+  background-image: url('../images/hero-bg--hotel.png');
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__button {
+  background-color: #ffffff;
+  color: #522504;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px 60px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Блок Rooms (после Hero), в котором размещаются карточки отелей */
+
+.rooms {
+  padding: 80px 0;
+  background-color: #faf8f5; /* Светло-бежевый фон, чтобы белые карточки на нем выделялись */
+}
+
+.rooms__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.rooms__welcome {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.rooms__title {
+  text-align: center;
+  font-size: 36px;
+  color: #522504;
+  margin-bottom: 50px;
+}
+
+/* Сетка карточек (выравнивается в ряд) */
+/* По ум для мобильной версии*/
+.rooms__grid {
+  display: grid; /* Включаем CSS Grid */
+  grid-template-columns: 1fr; /* Одна колонка на телефоне */
+  gap: 40px;
+  justify-items: center; /* Центрируем карточки */
+}
+
+/* Сама карточка */
+.room-card {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 12px; /* Скругленные углы */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Легкая тень при нажатии */
+  overflow: hidden; /* Обрезать картинку по скругленным углам карточки */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Эффекты при наведении на карточку */
+.room-card:hover {
+  transform: translateY(-10px); /* Приподнять карточку вверх */
+  box-shadow: 0 12px 25px rgba(74, 41, 18, 0.15); /* Расширить область тени */
+}
+
+/* Картинка внутри карточки */
+.room-card__figure {
+  position: relative;
+  margin: 0;
+}
+
+.room-card__image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover; /* Заполнить область ровно, не сплющивая картинку */
+  display: block;
+}
+
+.room-card__caption {
+  font-size: 13px;
+  color: #888;
+  padding: 10px 15px;
+  font-style: italic;
+  background-color: #fdfcfb;
+  border-bottom: 1px solid #eee;
+}
+
+/* Тело карточки (отступы для текста) */
+.room-card__body {
+  padding: 25px;
+}
+
+.room-card__name {
+  font-size: 22px;
+  color: #522504;
+  margin-bottom: 15px;
+}
+
+.room-card__description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5; /* Межстрочный интервал */
+  margin-bottom: 25px;
+}
+
+.room-card__availability {
+  font-size: 15px;
+  font-weight: bold;
+  color: #2e7d32; /* Статус занятости номера */
+}
+
+.room-card__offer {
+  margin-bottom: 25px;
+}
+
+/* Медиазапрос для планшетов и телефонов */
+@media (max-width: 768px) {
+  .hero {
+    height: 400px; /* Уменьшить высоту главной картинки */
+  }
+
+  .hero__button {
+    font-size: 18px; /* Уменьшить кнопку */
+    padding: 15px 40px;
+  }
+
+  .rooms__title {
+    font-size: 28px; /* Уменьшить заголовок */
+  }
+
+  .rooms__grid {
+    gap: 20px;
+  }
+}
+
+/* Медиазапрос для телефонов */
+@media (max-width: 480px) {
+  .room-card {
+    width: 100%; /* Задать карточке размер 100% ширины экрана телефона */
+  }
+}
+
+/* Для пк и планшетов*/
+
+@media (min-width: 768px) {
+  .rooms__grid {
+    grid-template-columns: repeat(2, 1fr); /* Две колонки (карточки рядом) */
+    gap: 30px;
+  }
+}

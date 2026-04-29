@@ -1,0 +1,161 @@
+/* Шапка */
+.header {
+  background-color: #522504;
+  color: #ffffff;
+  padding: 20px 0;
+}
+
+/* По умолчанию для мобильной версии */
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.header__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Логотип. Фон логотипа светлый, текст коричневый. Лого не в виде картинки, 
+а в виде фона контейнера, чтобы не было проблем при масштабировании */
+.header__logo {
+  background-color: #f7e4c9;
+  color: #522504;
+  font-size: 32px;
+  font-weight: bold;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__title {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.header__nav {
+  display: flex;
+  flex-direction: column; /* Ссылки меню в столбик */
+  align-items: center;
+  gap: 15px;
+}
+
+.header__link,
+.header__auth {
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+/* Прозрачность при наведении на ссылки шапки */
+.header__link:hover,
+.header__auth:hover,
+.hero__button:hover {
+  opacity: 0.7;
+}
+
+/* Бургер-меню */
+.header__burger {
+  display: none; /* Не отображать в пк версии */
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.header__burger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-white);
+  position: absolute;
+  left: 0;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    top 0.3s ease,
+    bottom 0.3s ease;
+}
+
+.header__burger-line:nth-child(1) {
+  top: 0;
+}
+.header__burger-line:nth-child(2) {
+  top: 9px;
+}
+.header__burger-line:nth-child(3) {
+  bottom: 0;
+}
+
+/* Медиазапрос для планшетов и телефонов */
+@media (max-width: 768px) {
+  .header__container {
+    flex-direction: wrap;
+  }
+
+  .header__burger {
+    display: block; /* Показать кнопку-бургер */
+  }
+
+  .header__nav {
+    display: none; /* Скрыть меню по умолчанию */
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+    order: 10; /* Сдвинуть меню в низ шапки */
+  }
+
+  /* Действие при клике по кнопке */
+  .header__nav--active {
+    display: flex;
+  }
+
+  /* Из бургера в крестик при открытии */
+  .header__burger--active .header__burger-line:nth-child(1) {
+    top: 9px;
+    transform: rotate(45deg);
+  }
+  .header__burger--active .header__burger-line:nth-child(2) {
+    opacity: 0; /* Скрыть среднюю полоску */
+  }
+  .header__burger--active .header__burger-line:nth-child(3) {
+    bottom: 9px;
+    transform: rotate(-45deg);
+  }
+}
+
+/* Медиазапрос для телефонов */
+@media (max-width: 480px) {
+  .header__nav {
+    flex-direction: column;
+    align-items: center; /* Перенос ссылок в столбик */
+    gap: 15px;
+  }
+}
+
+/* Для пк и планшетов */
+@media (min-width: 768px) {
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header__nav {
+    flex-direction: row; /* Ссылки меню в ряд */
+    gap: 30px;
+  }
+}

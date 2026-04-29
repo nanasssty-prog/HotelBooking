@@ -1,0 +1,61 @@
+/* Подвал */
+.footer {
+  background-color: #ececec;
+  color: #522504;
+  padding: 40px 0 20px 0;
+  text-align: center;
+}
+
+/* По умолч для мобильной версии */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column; /* Ссылки друг под другом */
+  gap: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Подчеркивание при наведении на ссылки подвала */
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__copyright {
+  font-size: 14px;
+  margin-top: 20px;
+  color: #522504;
+}
+
+/* Медиазапрос для планшетов и телефонов */
+@media (max-width: 768px) {
+  .footer__nav {
+    flex-direction: column; /* Ссылки в столбик */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .footer__details {
+    text-align: center; /* Центрировать текст адреса и цены */
+  }
+}
+
+/* Для пк и планшетов */
+@media (min-width: 768px) {
+  .footer__nav {
+    flex-direction: row; /* Ссылки в ряд */
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+  }
+}
