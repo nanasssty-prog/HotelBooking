@@ -1,31 +1,134 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>HotelBooking</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
-    <body>
-        <!-- 
-        <h1>Добро пожаловать в HotelBooking!</h1>
-        <p>Это стартовая страница моего веб-приложения.</p>
-        <script src="js/script.js"></script>
-        -->
-        <script src="js/script.js"></script>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Сервис бронирования отелей HotelBooking.ru" />
+    <title>HotelBooking | Бронирование отелей</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body itemscope itemtype="https://schema.org/WebPage">
+    <a href="#main" class="skip-link">Перейти к основному содержимому</a>
 
-        <div class="hotel-container">
-            <div class="header-bg"></div>
-            <img class="nav-bg-1" src="https://placehold.co/1656x400" />
-            <div class="brand-name">HotelBooking</div>
-            <div class="logo-circle"></div>
-            <div class="logo-text">HB</div>
-            <img class="hero-img" src="https://placehold.co/6840x4562" />
-            <div class="nav-link-1">Главная</div>
-            <img class="nav-bg-2" src="https://placehold.co/1656x400" />
-            <div class="nav-link-2">Контакты</div>
-            <img class="nav-bg-3" src="https://placehold.co/1656x400" />
-            <div class="nav-link-3">Услуги</div>
+    <header class="header" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="header__container">
+        <div class="header__brand">
+          <div class="header__logo">HB</div>
+          <span class="header__title">HotelBooking.ru</span>
         </div>
-    </body>
+
+        <button class="header__burger" id="burger-btn" aria-label="Открыть меню">
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+        </button>
+
+        <nav class="header__nav" id="mobile-menu">
+          <a href="#" class="header__link">О нас</a>
+          <a href="#" class="header__link">Контакты</a>
+          <a href="#" class="header__link">Бизнесу</a>
+        </nav>
+
+        <a href="#" class="header__auth">Войти/Регистрация</a>
+      </div>
+    </header>
+
+    <main class="main" itemprop="mainContentOfPage">
+      <div class="hero">
+        <div class="hero__content">
+          <a href="#" class="hero__button">Начать бронирование</a>
+        </div>
+      </div>
+
+      <section class="rooms">
+        <div class="rooms__container">
+          <h2 class="rooms__welcome">Добро пожаловать. Доступны следующие номера</h2>
+          <h3 class="rooms__title">Наши лучшие номера</h3>
+
+          <div class="rooms__grid">
+            <article class="room-card" itemscope itemtype="https://schema.org/HotelRoom">
+              <figure class="room-card__figure">
+                <img class="room-card__image" src="images/roomDeluxeSeaView.png" alt="Светлый Делюкс номер с видом на море" itemprop="image" />
+                <figcaption class="room-card__caption">Номер "Делюкс" с видом на море - фаворит наших гостей</figcaption>
+              </figure>
+
+              <div class="room-card__body">
+                <h4 class="room-card__name" itemprop="name">Делюкс с видом на море</h4>
+                <p class="room-card__description" itemprop="description">Просторный номер с большой кроватью и панорамными окнами.</p>
+
+                <div class="room-card__offer" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <p class="room-card__price">
+                    Цена:
+                    <span itemprop="price" content="12000">300</span>
+                    руб./ночь
+                  </p>
+                  <meta itemprop="priceCurrency" content="RUB" />
+                </div>
+
+                <p class="room-card__availability">
+                  Свободен с:
+                  <time datetime="2026-05-01">1 мая 2026</time>
+                </p>
+              </div>
+            </article>
+
+            <article class="room-card" itemscope itemtype="https://schema.org/HotelRoom">
+              <figure class="room-card__figure">
+                <img class="room-card__image" src="images/roomFirstFloor.jpeg" alt="Уютный стандартный номер" itemprop="image" />
+                <figcaption class="room-card__caption">Оптимальный выбор для коротких поездок</figcaption>
+              </figure>
+
+              <div class="room-card__body">
+                <h4 class="room-card__name" itemprop="name">Стандартный номер</h4>
+                <p class="room-card__description" itemprop="description">Уютный номер со всеми необходимыми удобствами для комфортного отдыха.</p>
+
+                <div class="room-card__offer" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <p class="room-card__price">
+                    Цена:
+                    <span itemprop="price" content="5000">150</span>
+                    руб./ночь
+                  </p>
+                  <meta itemprop="priceCurrency" content="RUB" />
+                </div>
+
+                <p class="room-card__availability">
+                  Свободен с:
+                  <time datetime="2026-05-05">5 мая 2026</time>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+      <div class="footer__container" itemscope itemtype="https://schema.org/Hotel">
+        <meta itemprop="name" content="Отель HotelBooking" />
+
+        <nav class="footer__nav">
+          <a href="#" class="footer__link">Связаться с нами</a>
+          <a href="#" class="footer__link">О нас</a>
+          <a href="#" class="footer__link">Другие услуги</a>
+        </nav>
+
+        <div class="footer__details">
+          <address class="footer__address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            Адрес:
+            <span itemprop="addressLocality">Республика Беларусь, г. Минск</span>
+            ,
+            <span itemprop="streetAddress">ул. Примерная, д. 1</span>
+          </address>
+          <p class="footer__price-range">
+            Ценовой диапазон:
+            <span itemprop="priceRange">от 100 до 10 000 руб.</span>
+          </p>
+        </div>
+
+        <p class="footer__copyright">Авторское право @2026 HotelBooking.ru. Все права защищены</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
 </html>

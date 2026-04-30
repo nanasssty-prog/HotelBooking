@@ -1,111 +1,50 @@
-.hotel-container {
-    width: 6910px;
-    height: 5580px;
-    position: relative;
-    background: white;
-    overflow: hidden;
+@import 'variables.css';
+@import 'header.css';
+@import 'main.css';
+@import 'footer.css';
+
+/* Для всей разметки */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header-bg {
-    width: 6840px;
-    height: 1380px;
-    left: 0px;
-    top: 80px;
-    position: absolute;
-    background: #f7e4c9;
+body {
+  font-family: var(--font-family-main);
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+
+  /* Sticky Footer (Flexbox) */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.nav-bg-1 {
-    width: 1656px;
-    height: 400px;
-    left: 1343px;
-    top: 594px;
-    position: absolute;
-    border-radius: 362px;
+.main {
+  flex-grow: 1; /* Забирает всё свободное пространство, толкая footer вниз */
 }
 
-.brand-name {
-    left: 211px;
-    top: 1214px;
-    position: absolute;
-    color: #926f5f;
-    font-size: 128px;
-    font-family: Inconsolata, sans-serif;
-    font-weight: 500;
+a {
+  text-decoration: none; /* Убрать нижнее подчеркивание */
+  color: inherit; /* Наследовать цвет от родительского контейнера */
 }
 
-.logo-circle {
-    width: 910px;
-    height: 850px;
-    left: 140px;
-    top: 345px;
-    position: absolute;
-    background: #5a4d45;
-    border-radius: 9999px;
+/* Скрытая ссылка */
+.skip-link {
+  position: absolute;
+  top: -100px; /* Спрятать ссылку за пределы экрана */
+  left: 0;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  z-index: 1000;
+  transition: top 0.3s ease;
 }
 
-.logo-text {
-    left: 395px;
-    top: 560px;
-    position: absolute;
-    color: white;
-    font-size: 400px;
-    font-family: Inconsolata, sans-serif;
-    font-weight: 500;
-}
-
-.hero-img {
-    width: 6840px;
-    height: 4562px;
-    left: 0px;
-    top: 1640px;
-    position: absolute;
-}
-
-.nav-link-1 {
-    left: 1768px;
-    top: 689px;
-    position: absolute;
-    color: white;
-    font-size: 200px;
-    font-family: Inconsolata, sans-serif;
-    font-weight: 500;
-}
-
-.nav-bg-2 {
-    width: 1656px;
-    height: 400px;
-    left: 3089px;
-    top: 594px;
-    position: absolute;
-    border-radius: 362px;
-}
-
-.nav-link-2 {
-    left: 3435px;
-    top: 689px;
-    position: absolute;
-    color: white;
-    font-size: 200px;
-    font-family: Inconsolata, sans-serif;
-    font-weight: 500;
-}
-
-.nav-bg-3 {
-    width: 1656px;
-    height: 400px;
-    left: 4835px;
-    top: 594px;
-    position: absolute;
-    border-radius: 362px;
-}
-
-.nav-link-3 {
-    left: 5328px;
-    top: 689px;
-    position: absolute;
-    color: white;
-    font-size: 200px;
-    font-family: Inconsolata, sans-serif;
-    font-weight: 500;
+/* Показать ссылку только тогда, когда на нее переходят клавишей Tab */
+.skip-link:focus {
+  top: 0;
 }

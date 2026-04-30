@@ -1,0 +1,31 @@
+:root {
+  /* Цвета из макета Figma */
+  --color-primary: #522504; /* Шапка, кнопки, заголовки */
+  --color-secondary: #ececec; /* Подвал */
+  --color-accent: #2e7d32; /* Статус номеров */
+  --color-background: #ffffff; /* Основной белый фон */
+  --color-background-alt: #faf8f5; /* Фон области для размещения карточек с номерами */
+  --color-text-main: #333333; /* Основной текст */
+  --color-text-muted: #666666; /* Второстепенный текст */
+  --color-white: #ffffff;
+
+  /* Типографика */
+  --font-family-main: 'Arial', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2.25rem;
+
+  /* Отступы по макету */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 5rem;
+
+  /* Breakpoints согласно адаптивному макету */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+}
