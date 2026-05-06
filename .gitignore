@@ -4,3 +4,4 @@ node_modules/
 oldStyle.css
 myNotes.txt
 myOldFiles/
+.env
