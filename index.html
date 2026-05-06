@@ -45,6 +45,59 @@
           <h2 class="rooms__welcome">Добро пожаловать. Доступны следующие номера</h2>
           <h3 class="rooms__title">Наши лучшие номера</h3>
 
+          <div class="rooms__input-container">
+            <input type="text" name="search_query" id="room-search" class="rooms__input-field" placeholder="Поиск по номерам..." />
+          </div>
+
+          <!-- Фильтры -->
+          <div class="rooms__filters" style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px">
+            <h3 style="margin-bottom: 10px">Фильтры</h3>
+
+            <!-- Ползунок цены -->
+            <label>
+              Макс. цена за ночь:
+              <span id="price-value">5000</span>
+              руб.
+            </label>
+            <input type="range" id="price-filter" min="1000" max="10000" step="500" value="5000" style="width: 100%; margin-bottom: 15px" />
+
+            <!-- Чекбоксы удобств -->
+            <label style="margin-right: 15px">
+              <input type="checkbox" class="amenity-filter" value="wifi" />
+              Wi-Fi
+            </label>
+            <label style="margin-right: 15px">
+              <input type="checkbox" class="amenity-filter" value="pool" />
+              Бассейн
+            </label>
+            <label>
+              <input type="checkbox" class="amenity-filter" value="breakfast" />
+              Завтрак
+            </label>
+          </div>
+
+          <!-- Калькулятор + rалендарь -->
+          <div class="rooms__calculator" style="background: #eef8f1; padding: 20px; border-radius: 8px; margin-bottom: 30px">
+            <h3 style="margin-bottom: 10px">Калькулятор проживания (2000 руб/сутки)</h3>
+
+            <!-- Календари заезда и выезда -->
+            <label style="margin-right: 20px">
+              Заезд:
+              <input type="date" id="checkin-date" />
+            </label>
+            <label>
+              Выезд:
+              <input type="date" id="checkout-date" />
+            </label>
+
+            <!-- Итоговая сумма -->
+            <p style="margin-top: 15px; font-size: 18px">
+              Итого:
+              <strong id="total-price">0</strong>
+              руб.
+            </p>
+          </div>
+
           <div class="rooms__grid">
             <article class="room-card" itemscope itemtype="https://schema.org/HotelRoom">
               <figure class="room-card__figure">
@@ -70,6 +123,7 @@
                   <time datetime="2026-05-01">1 мая 2026</time>
                 </p>
               </div>
+              <button class="room-card__button" style="margin-top: 10px; padding: 5px 10px; cursor: pointer">Скрыть номер</button>
             </article>
 
             <article class="room-card" itemscope itemtype="https://schema.org/HotelRoom">
@@ -96,6 +150,7 @@
                   <time datetime="2026-05-05">5 мая 2026</time>
                 </p>
               </div>
+              <button class="room-card__button" style="margin-top: 10px; padding: 5px 10px; cursor: pointer">Скрыть номер</button>
             </article>
           </div>
         </div>
@@ -111,6 +166,11 @@
           <a href="#" class="footer__link">О нас</a>
           <a href="#" class="footer__link">Другие услуги</a>
         </nav>
+
+        <form class="footer__contact-form" id="subscribe-form">
+          <input type="email" name="user_email" id="footer-email" class="footer__contact-form__email" placeholder="Ваш email для новостей" />
+          <button type="submit" class="footer__contact-form__submit-button">Подписаться</button>
+        </form>
 
         <div class="footer__details">
           <address class="footer__address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
@@ -129,6 +189,10 @@
       </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!--
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/components/modal.js"></script>
+    -->
+    <script type="module" src="js/script.js"></script>
   </body>
 </html>

@@ -26,6 +26,25 @@
   font-weight: bold;
 }
 
+.footer__contact-form {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.footer__contact-form__email {
+  padding: 8px;
+}
+
+.footer__contact-form__submit-button {
+  padding: 8px 15px;
+  background: #522504;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
 /* Подчеркивание при наведении на ссылки подвала */
 .footer__link:hover {
   text-decoration: underline;
