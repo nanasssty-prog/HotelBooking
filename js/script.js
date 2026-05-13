@@ -244,7 +244,11 @@ class APIIntegrationManager {
     this.setupEventListeners();
     this.loadCachedData();
     this.setupSecurityMeasures();
-    this.renderHistory(); // Запуск отрисовки истории поиска (Инд. задание)
+    this.renderHistory(); // Запуск отрисовки истории поиска (Инд задание)
+
+    // Запуск авто-тестов из блока APITester (результат будет в консоли F12)
+    APITester.testOfflineFunctionality(this.localstorage);
+    APITester.testAPIConnection(this.api);
   }
 
   async initializeAPI() {
@@ -290,9 +294,11 @@ class APIIntegrationManager {
         return;
       }
 
+      // Запрос к API
       const data = await this.api.get(API_CONFIG.booking.endpoints.locations, params);
       this.currentData = data;
 
+      // Кэшируем резы
       this.localstorage.set(cacheKey, data);
       this.localstorage.set('last_api_data', data);
 
@@ -308,6 +314,7 @@ class APIIntegrationManager {
     }
   }
 
+  // Выгрузка кэшированных данных
   loadCachedData() {
     const lastData = this.localstorage.get('last_api_data');
     if (lastData) {
@@ -317,6 +324,7 @@ class APIIntegrationManager {
     }
   }
 
+  // Обработка ошибок API
   handleAPIError(error) {
     console.error('API Error:', error);
     let errorMessage = 'Произошла ошибка при загрузке данных';
@@ -333,7 +341,7 @@ class APIIntegrationManager {
     this.dataHandler.renderLocations(formattedData, container, item => this.saveItem(item));
   }
 
-  // Функции для истории поиска (Инд. задание)
+  // Функции для истории поиска (Инд задание)
   saveToHistory(query) {
     let history = this.localstorage.get('search_history', []);
     history = history.filter(item => item.toLowerCase() !== query.toLowerCase()); // Удаляем дубли
@@ -407,6 +415,41 @@ window.fetch = async (...args) => {
   console.log('API Call:', args[0]);
   return originalFetch.apply(this, args);
 };
+
+// Для лр6 модуль автоматического тестирования
+class APITester {
+  static async testAPIConnection(apiService) {
+    console.log('--- ЗАПУСК ТЕСТОВ API ---');
+    const testScenarios = [
+      { name: 'Успешный запрос (London)', params: { name: 'London', locale: 'en-gb' } },
+      { name: 'Запрос без города (проверка ошибки)', params: { name: '' } },
+      { name: 'Неверные параметры', params: { invalid_param: '123' } },
+    ];
+
+    for (const scenario of testScenarios) {
+      try {
+        console.log(`Тест: ${scenario.name}`);
+        // Обращаемся к эндпоинту Букинга
+        const result = await apiService.get('/hotels/locations', scenario.params);
+        console.log('✓ Success: Ответ получен', result ? '(данные есть)' : '');
+      } catch (error) {
+        console.log('X Ожидаемая ошибка:', error.message);
+      }
+    }
+  }
+
+  static testOfflineFunctionality(localstorageService) {
+    console.log('--- ЗАПУСК ТЕСТА LOCALSTORAGE ---');
+    const testData = { test: 'offline_data' };
+
+    // Пробуем сохранить тестовые данные
+    localstorageService.set('offline_test', testData);
+    // Пробуем их достать
+    const retrieved = localstorageService.get('offline_test');
+
+    console.log('Offline test:', retrieved?.test === 'offline_data' ? '✓ PASS (Хранилище работает)' : 'X FAIL (Ошибка хранилища)');
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   new APIIntegrationManager();

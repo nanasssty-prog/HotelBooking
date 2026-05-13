@@ -27,7 +27,7 @@ class ApiService {
       // Проверка безопасности 2: Безопасные опции fetch и ограничение метода (только GET)
       const secureOptions = {
         method: 'GET', // Строго ограничиваем метод
-        mode: 'cors', // Проверка CORS (из методички)
+        mode: 'cors', // Проверка CORS (из методы)
         headers: {
           'Content-Type': 'application/json',
           // Скрываем ключи в заголовках, а не в URL
@@ -39,13 +39,11 @@ class ApiService {
       const response = await fetch(url, secureOptions);
 
       if (!response.ok) {
-        // Точь-в-точь как на скриншоте методички
         throw new Error(`Secure request failed: ${response.status}`);
       }
 
       return await response.json();
     } catch (error) {
-      // Перехват ошибок как на скриншоте
       console.error('Secure request error:', error);
       throw error;
     }
